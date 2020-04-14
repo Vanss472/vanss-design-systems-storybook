@@ -1,0 +1,24 @@
+{
+  "sliderImg": [
+    {
+      "id": 1,
+      "image": "https://picsum.photos/1800/480?random=1",
+      "alt": "Random Featured Image 1"
+    },
+    {
+      "id": 2,
+      "image": "https://picsum.photos/1800/480?random=2",
+      "alt": "Random Featured Image 2"
+    },
+    {
+      "id": 3,
+      "image": "https://picsum.photos/1800/480?random=3",
+      "alt": "Random Featured Image 3"
+    },
+    {
+      "id": 4,
+      "image": "https://picsum.photos/1800/480?random=4",
+      "alt": "Random Featured Image 4"
+    }
+  ]
+}

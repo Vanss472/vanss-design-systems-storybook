@@ -1,0 +1,7 @@
+{
+  "mainMenuItem": [
+    { "id": 1, "text": "Home", "href": "/", "isActive": "is-active" },
+    { "id": 2, "text": "About", "href": "/about" },
+    { "id": 3, "text": "Work", "href": "/work" }
+  ]
+}

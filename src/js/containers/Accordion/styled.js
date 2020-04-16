@@ -2,22 +2,67 @@ import styled from 'styled-components';
 import { rem } from '../../mixins';
 
 export const Tittle = styled.h3`
-  border: 1px solid black;
+  margin: 0;
+
+  &:last-of-type {
+    > button {
+      &:not([aria-expanded="true"]) {
+        border-bottom: 1px solid lightgray;
+      }
+    }
+  }
 
   button {
+    position: relative;
     margin: 0;
-    padding: 0;
-    background-color: whitesmoke;
-    border: 0;
+    padding-top: ${rem(20)};
+    padding-bottom: ${rem(20)};
+    padding-left: ${rem(16)};
+    padding-right: ${rem(16)};
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-bottom: 0;
+    font-size: ${rem(12)};
+    line-height: ${rem(12)};
+    color: black;
     cursor: pointer;
     appearance: none;
     border-radius: 0;
     display: flex;
     width: 100%;
+
+    &:focus,
+    &:hover {
+      background-color: lightgray;
+    }
+
+    &::before {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: ${rem(16)};
+      margin-top: ${rem(-8)};
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        content: "-";
+      }
+    }
   }
 `;
 
 export const Panel = styled.div`
-  padding-right: ${rem(20)};
-  padding-left: ${rem(20)};
+  padding-right: ${rem(16)};
+  padding-left: ${rem(16)};
+  border: 1px solid lightgray;
+  border-bottom: 0;
+  background-color: white;
+  color: black;
+  transition: all .3s;
+
+    > div {
+      padding-top: ${rem(16)};
+      padding-bottom: ${rem(16)};
+    }
 `;

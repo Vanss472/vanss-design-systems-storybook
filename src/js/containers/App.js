@@ -8,9 +8,10 @@ import AccordionItem from './Accordion/AccordionItem';
 const App = () => (
   <>
     <Menu ariaLabel="Main Navigation" />
+    <main>
     <Slider ariaLabel="Featured Photography" />
     <Accordion defaultIndex="1">
-      <AccordionItem label="I'm a firt label" index="1">
+      <AccordionItem label="Accordion 1" index="1">
         <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         Tenetur voluptatem, dignissimos fuga culpa voluptatibus et aliquid
@@ -18,7 +19,7 @@ const App = () => (
         voluptas ipsam amet alias. Sapiente, reprehenderit!
         </p>
       </AccordionItem>
-      <AccordionItem label="I'm a second accordion label" index="2">
+      <AccordionItem label="Accordion 2" index="2">
         <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eaque voluptates corrupti esse. Sunt quod quas expedita illo adipisci
@@ -27,6 +28,7 @@ const App = () => (
         </p>
       </AccordionItem>
     </Accordion>
+    </main>
   </>
 );
 

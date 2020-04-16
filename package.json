@@ -43,6 +43,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-transition-group": "^4.3.0",
     "sanitize.css": "^11.0.0",
     "sass-loader": "^8.0.2",
     "styled-components": "^5.0.1",

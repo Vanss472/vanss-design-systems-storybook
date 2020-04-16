@@ -40,6 +40,7 @@ class Accordion extends Component {
               key={props.index}
               buttonId={`btn${props.index}id`}
               panelId={`panel${props.index}id`}
+              in={bindIndex === props.index}
               isCollapsed={bindIndex === props.index}
               label={props.label}
               handleClick={() => this.changeItem(props.index)}

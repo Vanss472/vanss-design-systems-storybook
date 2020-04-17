@@ -6,9 +6,7 @@ export const Tittle = styled.h3`
 
   &:last-of-type {
     > button {
-      &:not([aria-expanded="true"]) {
-        border-bottom: 1px solid lightgray;
-      }
+      border-bottom: 1px solid lightgray;
     }
   }
 
@@ -45,6 +43,8 @@ export const Tittle = styled.h3`
     }
 
     &[aria-expanded="true"] {
+      border-bottom: 1px solid lightgray;
+
       &::before {
         content: "-";
       }
@@ -55,8 +55,6 @@ export const Tittle = styled.h3`
 export const Panel = styled.div`
   padding-right: ${rem(16)};
   padding-left: ${rem(16)};
-  border: 1px solid lightgray;
-  border-bottom: 0;
   background-color: white;
   color: black;
   transition: all .3s;

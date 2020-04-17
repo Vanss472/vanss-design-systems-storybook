@@ -10,7 +10,7 @@ const App = () => (
     <Menu ariaLabel="Main Navigation" />
     <main>
     <Slider ariaLabel="Featured Photography" />
-    <Accordion defaultIndex="1">
+    <Accordion defaultIndex="0">
       <AccordionItem label="Accordion 1" index="1">
         <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -20,6 +20,14 @@ const App = () => (
         </p>
       </AccordionItem>
       <AccordionItem label="Accordion 2" index="2">
+        <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eaque voluptates corrupti esse. Sunt quod quas expedita illo adipisci
+        laudantium laboriosam, vero provident accusamus quidem magnam in, maxime
+        eveniet explicabo cumque.
+        </p>
+      </AccordionItem>
+      <AccordionItem label="Accordion 3" index="3">
         <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Eaque voluptates corrupti esse. Sunt quod quas expedita illo adipisci

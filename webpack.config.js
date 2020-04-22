@@ -9,7 +9,7 @@ const autoprefixer = require('autoprefixer');
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'src'),
-  JS: path.resolve(__dirname, 'src/js')
+  JS: path.resolve(__dirname, 'src/js'),
 };
 
 // Webpack configuration
@@ -27,25 +27,28 @@ module.exports = {
         output: {
           comments: false, // remove all comments
         },
-      }
+      },
     })],
   },
   devServer: {
-    open: true
+    open: true,
   },
   // webpack is using html plugin
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
+      minify: {
+        removeScriptTypeAttributes: true,
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.bundle.css'
+      filename: 'css/style.bundle.css',
     }),
     new CopyWebpackPlugin([
       {
         from: path.join(paths.SRC, 'images'),
-        to: path.join(paths.DIST, 'images')
-      }
+        to: path.join(paths.DIST, 'images'),
+      },
     ]),
   ],
   // webpack is using loader
@@ -58,8 +61,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
+            presets: ['@babel/preset-env'],
+          },
         },
       },
       {
@@ -68,19 +71,19 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { url: false }
+            options: { url: false },
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-            }
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [autoprefixer('last 2 versions')]
-            }
+              plugins: () => [autoprefixer('last 2 versions')],
+            },
           },
         ],
       },

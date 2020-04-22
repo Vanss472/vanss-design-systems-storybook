@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { rem } from '../../mixins';
+import { rem } from '../../utils/mixins';
 
 export const NavLink = styled.a`
 	display: inline-flex;
 	width: 100%;
 	text-decoration: none;
-	color: black;
+	color: ${(props) => props.theme.colors.text};
 	font-size: ${rem(16)};
 	padding: ${rem(12)};
 
@@ -20,17 +20,17 @@ export const Nav = styled.nav`
 	left: 0;
 	width: 100%;
 	transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
-	transition: all .3s ease-in-out;
-	background-color: lightgrey;
+	transition: ${(props) => props.theme.transition.primary};
+	background-color: ${(props) => props.theme.colors.primary};
 	z-index: 99;
 
 	ul {
 		margin: 0;
 		padding: 0;
-		background-color: white;
+		background-color: ${(props) => props.theme.colors.background};
 
 		> li {
-			border-bottom: 1px solid lightgrey;
+			border-bottom: 1px solid ${(props) => props.theme.border.borderColor};
 		}
 	}
 `;
@@ -38,18 +38,19 @@ export const Nav = styled.nav`
 export const MobileButton = styled.button`
 	display: inline-flex;
 	align-items: center;
-  color: black;
+  color: ${(props) => props.theme.colors.text};
   font-size: ${rem(16)};
   margin: 0;
 	padding: 0.625rem 0.75rem;
-	background-color: white;
-  border: 2px solid black;
-	border-radius: 3px;
+	background-color: ${(props) => props.theme.colors.background};
+  border: 2px solid ${(props) => props.theme.border.borderColor};
+	border-radius: ${(props) => props.theme.border.borderRadius};
 	cursor: pointer;
 
 	svg {
 		width: 1.25rem;
 		height: 1.25rem;
+    fill: ${(props) => props.theme.border.borderColor};
 
 		.svg-menu-toggle {
 			.line {
@@ -85,7 +86,7 @@ export const MobileButton = styled.button`
 export const MobileNavWrapper = styled.section`
 	position: relative;
 	z-index: 100;
-	background-color: lightgrey;
+	background-color: ${(props) => props.theme.colors.primary};
 	padding: 0 1.25rem;
 	display: flex;
 	align-items: center;

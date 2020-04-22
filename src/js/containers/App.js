@@ -1,12 +1,15 @@
 import React from 'react';
-
+import { ThemeProvider } from 'styled-components';
 import Menu from '../components/Menu';
 import Slider from './Slider';
 import Accordion from './Accordion';
 import AccordionItem from './Accordion/AccordionItem';
+import { theme, GlobalStyle } from '../utils/constants';
 
 const App = () => (
   <>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
     <Menu ariaLabel="Main Navigation" />
     <main>
     <Slider ariaLabel="Featured Photography" />
@@ -37,6 +40,7 @@ const App = () => (
       </AccordionItem>
     </Accordion>
     </main>
+  </ThemeProvider>
   </>
 );
 

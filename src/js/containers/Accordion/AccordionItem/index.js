@@ -3,7 +3,7 @@ import { Transition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
 import * as Accordion from '../styled';
-import { cubic } from '../../../mixins';
+import { cubic } from '../../../utils/mixins';
 
 class AccordionItem extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from '../../mixins';
+import { rem } from '../../utils/mixins';
 
 export const Tittle = styled.h3`
   margin: 0;

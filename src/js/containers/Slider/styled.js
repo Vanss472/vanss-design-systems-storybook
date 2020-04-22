@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Slide from './Slide';
-import { rem } from '../../mixins';
+import { rem } from '../../utils/mixins';
 
 export const PlayPauseBtn = styled.button`
 	padding: 0;

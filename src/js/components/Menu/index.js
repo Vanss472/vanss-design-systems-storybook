@@ -31,7 +31,7 @@ const Menu = ({ ariaLabel }) => {
           {
 						data.mainMenuItem.map((item) => (
               <li key={item.id} className={`menu-item ${item.isActive}`}>
-                <NavLink href={item.href}>{item.text}</NavLink>
+                <NavLink tabIndex={open ? '0' : '-1'} href={item.href}>{item.text}</NavLink>
               </li>
 						))
 					}

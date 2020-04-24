@@ -33,3 +33,11 @@ $ yarn storybook
 ```bash
 $ yarn build-storybook
 ```
+
+#### Inspiration
+---
+
+- [Theme UI](https://theme-ui.com/demo)
+- [CSS Variables for React Devs](https://joshwcomeau.com/css/css-variables-for-react-devs/)
+- [Image Techniques On The Web](https://ishadeed.com/article/image-techniques/)
+- [Responsive Image Breakpoints Generator](https://www.responsivebreakpoints.com/)

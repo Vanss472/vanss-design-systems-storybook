@@ -2,22 +2,34 @@
   "sliderImg": [
     {
       "id": 1,
-      "image": "https://picsum.photos/1800/480?random=1",
+      "srcSet1280": "https://picsum.photos/id/1082/1600/500",
+      "srcSet1024": "https://picsum.photos/id/1082/1279/500",
+      "srcSet768": "https://picsum.photos/id/1082/1023/500",
+      "image": "https://picsum.photos/id/1082/767/500",
       "alt": "Random Featured Image 1"
     },
     {
       "id": 2,
-      "image": "https://picsum.photos/1800/480?random=2",
+      "srcSet1280": "https://picsum.photos/id/1077/1600/500",
+      "srcSet1024": "https://picsum.photos/id/1077/1279/500",
+      "srcSet768": "https://picsum.photos/id/1077/1023/500",
+      "image": "https://picsum.photos/id/1077/767/500",
       "alt": "Random Featured Image 2"
     },
     {
       "id": 3,
-      "image": "https://picsum.photos/1800/480?random=3",
+      "srcSet1280": "https://picsum.photos/id/563/1600/500?grayscale",
+      "srcSet1024": "https://picsum.photos/id/563/1279/500?grayscale",
+      "srcSet768": "https://picsum.photos/id/563/1023/500?grayscale",
+      "image": "https://picsum.photos/id/563/767/500?grayscale",
       "alt": "Random Featured Image 3"
     },
     {
       "id": 4,
-      "image": "https://picsum.photos/1800/480?random=4",
+      "srcSet1280": "https://picsum.photos/id/536/1600/500?grayscale",
+      "srcSet1024": "https://picsum.photos/id/536/1279/500?grayscale",
+      "srcSet768": "https://picsum.photos/id/536/1023/500?grayscale",
+      "image": "https://picsum.photos/id/536/767/500?grayscale",
       "alt": "Random Featured Image 4"
     }
   ]

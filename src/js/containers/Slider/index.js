@@ -116,6 +116,9 @@ class Slider extends Component {
         current={index === currentIndex ? active : ''}
         ariaHidden={index === currentIndex ? 'false' : 'true'}
         imagePath={slide.image}
+        srcSet1280={slide.srcSet1280}
+        srcSet1024={slide.srcSet1024}
+        srcSet768={slide.srcSet768}
         altText={slide.alt}
       />
     ));

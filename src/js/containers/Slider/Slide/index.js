@@ -1,43 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Slide extends Component {
-  constructor(props) {
-    super(props);
+const Slide = (props) => {
+  const {
+    current, className, imagePath, srcSet1280, srcSet1024, srcSet768, altText, ariaHidden,
+  } = props;
 
-    this.state = {
-      width: 0,
-      height: 0,
-    };
-
-    this.imageRef = React.createRef();
-  }
-
-	slideImages = () => {
-	  this.setState({
-	    width: this.imageRef.current.naturalWidth,
-	    height: this.imageRef.current.naturalHeight,
-	  });
-	}
-
-	render() {
-	  const { width, height } = this.state;
-	  const {
-	    current, className, imagePath, altText, ariaHidden,
-	  } = this.props;
-
-	  return (
-			<li className={`${className} ${current || ''}`} aria-hidden={ariaHidden}>
-				<img ref={this.imageRef} onLoad={this.slideImages} src={imagePath} alt={altText} width={width} height={height} />
-			</li>
-	  );
-	}
-}
+  return (
+    <li className={`${className} ${current || ''}`} aria-hidden={ariaHidden}>
+      <picture>
+        <source media="(min-width: 1280px)" srcSet={srcSet1280} />
+		    <source media="(min-width: 1024px)" srcSet={srcSet1024} />
+		    <source media="(min-width: 768px)" srcSet={srcSet768} />
+        <img
+          alt={altText}
+          src={imagePath}
+        />
+      </picture>
+    </li>
+  );
+};
 
 Slide.propTypes = {
   current: PropTypes.string,
   className: PropTypes.string,
   imagePath: PropTypes.string.isRequired,
+  srcSet1280: PropTypes.string.isRequired,
+  srcSet1024: PropTypes.string.isRequired,
+  srcSet768: PropTypes.string.isRequired,
   altText: PropTypes.string.isRequired,
   ariaHidden: PropTypes.string,
 };

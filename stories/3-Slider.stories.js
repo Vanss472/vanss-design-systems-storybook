@@ -11,7 +11,7 @@ export default {
 
 export const Carousel = () => <Slider ariaLabel={text('aria-label', 'Featured Photography')} />;
 
-export const Autoplay = () => <Slider ariaLabel={text('aria-label', 'Second Featured Photography')} autoplay={number('Autoplay Time', 3000)} />;
+export const Autoplay = () => <Slider ariaLabel={text('aria-label', 'Second Featured Photography')} autoPlay={number('Autoplay Time', 3000)} />;
 
 Autoplay.story = {
   name: 'with autoplay',

@@ -127,17 +127,19 @@ export const StyledSlide = styled(Slide)`
 	display: grid;
 	align-content: center;
 	justify-content: center;
-	transition: margin-right .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000);
+  transform: translateX(-100%);
 	opacity: 0;
-  margin-right: -100%;
+  order: 1;
+	transition: transform .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000);
 	backface-visibility: hidden;
 
 	&.is-active {
-		margin-right: 0;
+    transform: translateX(0);
 		opacity: 1;
+    order: 0;
 
 		~* {
-			margin-right: 100%;
+			transform: translateX(100%);
 		}
 	}
 `;
@@ -151,8 +153,21 @@ export const Slides = styled.ul`
 	padding: 0;
 	list-style: none;
 	display: flex;
+  transform: translate3d(100%, 0, 0);
+
+  &.slider-reverse {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &.slider-animate {
+    transform: none;
+    transition: ${(props) => props.theme.transition.primary};
+  }
+
 `;
 
 export const SliderContainer = styled.section`
 	position: relative;
+  max-width: 500px;
+  margin: 0 auto;
 `;

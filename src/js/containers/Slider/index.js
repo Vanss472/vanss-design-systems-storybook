@@ -29,6 +29,7 @@ class Slider extends Component {
   componentDidMount() {
     const { autoPlay } = this.props;
     if (autoPlay) {
+      console.log('autoplay init');
       this.setAutoPlay();
     }
   }
@@ -113,12 +114,13 @@ class Slider extends Component {
     const slideItem = slides.map((slide, index) => (
       <StyledSlide
         key={slide.id}
+        order={index === currentIndex ? ((index + 1) % (currentIndex + 1)) : (((((index + 1) - (currentIndex + 1)) % slides.length) + slides.length) % slides.length)}
         current={index === currentIndex ? active : ''}
         ariaHidden={index === currentIndex ? 'false' : 'true'}
         imagePath={slide.image}
-        srcSet1280={slide.srcSet1280}
-        srcSet1024={slide.srcSet1024}
-        srcSet768={slide.srcSet768}
+        srcSet1280={slide.srcSet.srcSet1280}
+        srcSet1024={slide.srcSet.srcSet1024}
+        srcSet768={slide.srcSet.srcSet768}
         altText={slide.alt}
       />
     ));
@@ -135,7 +137,7 @@ class Slider extends Component {
 
     return (
       <SliderContainer aria-label={ariaLabel} onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
-        <Slides>
+        <Slides className="slider-container slider-animate">
           {slideItem}
         </Slides>
         <SliderControls>

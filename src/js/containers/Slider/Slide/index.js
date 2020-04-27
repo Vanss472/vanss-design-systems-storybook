@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const Slide = (props) => {
   const {
-    current, className, imagePath, srcSet1280, srcSet1024, srcSet768, altText, ariaHidden,
+    current, className, imagePath, srcSet1280, srcSet1024, srcSet768, altText, ariaHidden, order,
   } = props;
 
   return (
-    <li className={`${className} ${current || ''}`} aria-hidden={ariaHidden}>
+    <li className={`${className} ${current || ''}`} aria-hidden={ariaHidden} style={{ order }}>
       <picture>
         <source media="(min-width: 1280px)" srcSet={srcSet1280} />
 		    <source media="(min-width: 1024px)" srcSet={srcSet1024} />
@@ -30,12 +30,14 @@ Slide.propTypes = {
   srcSet768: PropTypes.string.isRequired,
   altText: PropTypes.string.isRequired,
   ariaHidden: PropTypes.string,
+  order: PropTypes.number,
 };
 
 Slide.defaultProps = {
   current: 'is-active',
   className: 'slide-item',
   ariaHidden: true,
+  order: '',
 };
 
 export default Slide;

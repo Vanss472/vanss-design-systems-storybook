@@ -16,7 +16,10 @@ class Slider extends Component {
       currentIndex: 0,
       isPause: false,
       announceItem: false,
+      animate: 0,
     };
+
+    this.slider = React.createRef();
 
     this.goToPrev = this.goToPrev.bind(this);
     this.goToNext = this.goToNext.bind(this);
@@ -92,8 +95,13 @@ class Slider extends Component {
 
   goToNext() {
     const { slides } = this.state;
+    const sliderWidth = this.slider.current.clientWidth;
+
+    console.log(this.slider.current.style);
+    console.log(sliderWidth);
 
     this.setState((prevState) => ({
+      animate: -((prevState.currentIndex + 1) * 100),
       currentIndex: prevState.currentIndex === slides.length - 1 ? 0 : prevState.currentIndex + 1,
       announceItem: true,
     }));
@@ -108,7 +116,7 @@ class Slider extends Component {
   render() {
     const { ariaLabel, autoPlay } = this.props;
     const {
-      slides, currentIndex, active, announceItem, isPause,
+      slides, currentIndex, active, announceItem, isPause, animate,
     } = this.state;
 
     const slideItem = slides.map((slide, index) => (
@@ -137,7 +145,7 @@ class Slider extends Component {
 
     return (
       <SliderContainer aria-label={ariaLabel} onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
-        <Slides>
+        <Slides ref={this.slider} className={animate ? 'slider-animate' : ''} style={{ transform: `translateX(${animate}%)` }}>
           {slideItem}
         </Slides>
         <SliderControls>

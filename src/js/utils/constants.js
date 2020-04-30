@@ -11,6 +11,7 @@ export const theme = {
   },
   transition: {
     primary: 'all .3s ease-in-out',
+    transform: 'transform 0.7s ease-in-out',
   },
   border: {
     borderColor: 'black',

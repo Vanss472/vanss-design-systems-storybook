@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
 import data from './data.json';
@@ -137,7 +138,7 @@ class Slider extends Component {
 
     return (
       <SliderContainer aria-label={ariaLabel} onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
-        <Slides className="slider-container slider-animate">
+        <Slides>
           {slideItem}
         </Slides>
         <SliderControls>
@@ -172,10 +173,12 @@ class Slider extends Component {
 Slider.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   autoPlay: PropTypes.number,
+  in: PropTypes.bool,
 };
 
 Slider.defaultProps = {
   autoPlay: 0,
+  in: false,
 };
 
 export default Slider;

@@ -120,20 +120,19 @@ export const SliderControls = styled.ul`
 `;
 
 export const StyledSlide = styled(Slide)`
-	flex: 1 0 100%;
+	flex-shrink: 0;
+  flex-basis: 100%;
 	position: relative;
-	width: 100%;
-	height: 100%;
 	display: grid;
 	align-content: center;
 	justify-content: center;
-  transform: translateX(-100%);
-	opacity: 0;
-  order: 1;
-	transition: transform .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000);
+  /* transform: translateX(-100%); */
+	/* opacity: 0; */
+  /* order: 1; */
+	/* transition: transform .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000); */
 	backface-visibility: hidden;
 
-	&.is-active {
+	/* &.is-active {
     transform: translateX(0);
 		opacity: 1;
     order: 0;
@@ -141,7 +140,7 @@ export const StyledSlide = styled(Slide)`
 		~* {
 			transform: translateX(100%);
 		}
-	}
+	} */
 `;
 
 export const Slides = styled.ul`
@@ -153,21 +152,12 @@ export const Slides = styled.ul`
 	padding: 0;
 	list-style: none;
 	display: flex;
-  transform: translate3d(100%, 0, 0);
-
-  &.slider-reverse {
-    transform: translate3d(-100%, 0, 0);
-  }
 
   &.slider-animate {
-    transform: none;
-    transition: ${(props) => props.theme.transition.primary};
+    transition: ${(props) => props.theme.transition.transform};
   }
-
 `;
 
 export const SliderContainer = styled.section`
 	position: relative;
-  max-width: 500px;
-  margin: 0 auto;
 `;

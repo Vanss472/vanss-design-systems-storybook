@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 
-import { cubic } from '../../mixins';
+import { cubic } from '../../utils/mixins';
 
 class Slide extends Component {
   constructor(props) {

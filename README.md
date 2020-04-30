@@ -43,3 +43,8 @@ $ yarn build-storybook
 - [Responsive Image Breakpoints Generator](https://www.responsivebreakpoints.com/)
 - [Carousel Inline style Order formula](https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.htm)
 - [Remainder Calculator](https://www.omnicalculator.com/math/remainder)
+
+### Features ideas
+---
+
+- [Carousel](https://react-bootstrap.github.io/components/carousel/)

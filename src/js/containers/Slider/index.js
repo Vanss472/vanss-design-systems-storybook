@@ -173,12 +173,10 @@ class Slider extends Component {
 Slider.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   autoPlay: PropTypes.number,
-  in: PropTypes.bool,
 };
 
 Slider.defaultProps = {
   autoPlay: 0,
-  in: false,
 };
 
 export default Slider;

@@ -126,38 +126,23 @@ export const StyledSlide = styled(Slide)`
 	display: grid;
 	align-content: center;
 	justify-content: center;
-  /* transform: translateX(-100%); */
-	/* opacity: 0; */
-  /* order: 1; */
-	/* transition: transform .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000); */
-	backface-visibility: hidden;
-
-	/* &.is-active {
-    transform: translateX(0);
-		opacity: 1;
-    order: 0;
-
-		~* {
-			transform: translateX(100%);
-		}
-	} */
+  transition: ${(props) => props.theme.transition.transform};
+  backface-visibility: hidden;
 `;
 
 export const Slides = styled.ul`
 	position: relative;
 	width: 100%;
-	overflow: hidden;
+	/* overflow: hidden; */
 	z-index: 0;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	display: flex;
-
-  &.slider-animate {
-    transition: ${(props) => props.theme.transition.transform};
-  }
 `;
 
 export const SliderContainer = styled.section`
-	position: relative;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
 `;

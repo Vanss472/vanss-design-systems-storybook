@@ -19,8 +19,6 @@ class Slider extends Component {
       animate: 0,
     };
 
-    this.slider = React.createRef();
-
     this.goToPrev = this.goToPrev.bind(this);
     this.goToNext = this.goToNext.bind(this);
     this.paginationBullet = this.paginationBullet.bind(this);
@@ -95,13 +93,9 @@ class Slider extends Component {
 
   goToNext() {
     const { slides } = this.state;
-    const sliderWidth = this.slider.current.clientWidth;
-
-    console.log(this.slider.current.style);
-    console.log(sliderWidth);
 
     this.setState((prevState) => ({
-      animate: -((prevState.currentIndex + 1) * 100),
+      animate: prevState.animate === -100 * (slides.length - 1) ? 0 : prevState.animate - 100,
       currentIndex: prevState.currentIndex === slides.length - 1 ? 0 : prevState.currentIndex + 1,
       announceItem: true,
     }));
@@ -130,6 +124,7 @@ class Slider extends Component {
         srcSet1024={slide.srcSet.srcSet1024}
         srcSet768={slide.srcSet.srcSet768}
         altText={slide.alt}
+        transition={animate}
       />
     ));
 
@@ -145,7 +140,7 @@ class Slider extends Component {
 
     return (
       <SliderContainer aria-label={ariaLabel} onMouseEnter={this.onMouseEnterHandler} onMouseLeave={this.onMouseLeaveHandler}>
-        <Slides ref={this.slider} className={animate ? 'slider-animate' : ''} style={{ transform: `translateX(${animate}%)` }}>
+        <Slides>
           {slideItem}
         </Slides>
         <SliderControls>

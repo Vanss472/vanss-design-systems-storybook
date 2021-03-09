@@ -2,8 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Constant with our paths
 const paths = {
@@ -14,6 +13,7 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
+  mode: 'development',
   devtool: 'inline-source-map',
   entry: [path.join(paths.JS, 'index.js')],
   output: {
@@ -21,14 +21,8 @@ module.exports = {
     filename: 'js/app.bundle.js',
   },
   optimization: {
-    minimizer: [new UglifyJsPlugin({
-      sourceMap: true,
-      uglifyOptions: {
-        output: {
-          comments: false, // remove all comments
-        },
-      },
-    })],
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   devServer: {
     open: true,
@@ -44,12 +38,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/style.bundle.css',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.join(paths.SRC, 'images'),
-        to: path.join(paths.DIST, 'images'),
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(paths.SRC, 'images'),
+          to: path.join(paths.DIST, 'images'),
+        },
+      ],
+    }),
   ],
   // webpack is using loader
   module: {
@@ -81,9 +77,6 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer('last 2 versions')],
-            },
           },
         ],
       },

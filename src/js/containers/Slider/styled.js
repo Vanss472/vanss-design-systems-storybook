@@ -126,21 +126,13 @@ export const StyledSlide = styled(Slide)`
 	display: grid;
 	align-content: center;
 	justify-content: center;
-  /* transform: translateX(-100%); */
-	/* opacity: 0; */
-  /* order: 1; */
-	/* transition: transform .25s cubic-bezier(0.420, 0.000, 0.580, 1.000), opacity .25s cubic-bezier(0.420, 0.000, 0.580, 1.000); */
+	opacity: 0;
 	backface-visibility: hidden;
 
-	/* &.is-active {
-    transform: translateX(0);
+	&.is-active {
+		transition: opacity 0.8s cubic-bezier(0.420, 0.000, 0.580, 1.000);
 		opacity: 1;
-    order: 0;
-
-		~* {
-			transform: translateX(100%);
-		}
-	} */
+	}
 `;
 
 export const Slides = styled.ul`

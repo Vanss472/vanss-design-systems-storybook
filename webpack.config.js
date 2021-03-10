@@ -80,10 +80,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   // enable importing JS files
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
 };

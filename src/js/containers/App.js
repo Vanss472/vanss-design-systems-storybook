@@ -5,6 +5,8 @@ import Slider from './Slider';
 import Accordion from './Accordion';
 import AccordionItem from './Accordion/AccordionItem';
 import { theme, GlobalStyle } from '../utils/constants';
+import Tabs from '../components/Tabs';
+import data from '../components/Tabs/data.json';
 
 const App = () => (
   <>
@@ -39,6 +41,7 @@ const App = () => (
         </p>
       </AccordionItem>
     </Accordion>
+    <Tabs tabs={data.tabs} />
     </main>
   </ThemeProvider>
   </>

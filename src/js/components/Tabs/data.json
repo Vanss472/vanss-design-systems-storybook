@@ -1,0 +1,7 @@
+{
+  "tabs": [
+    { "key": "bike", "name": "Bike" },
+    { "key": "surf", "name": "Surf" },
+    { "key": "snowboard", "name": "Snowboard" }
+  ]
+}

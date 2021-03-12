@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { TabPanel } from './styled';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { TabGroup, Tab, SlidingBar, TabPanel } from './styled';
 
 type TabsProps = {
   tabs: {
@@ -10,25 +10,52 @@ type TabsProps = {
 
 const Tabs = ({ tabs }: TabsProps) => {
   const [isSelected, setIsSelected] = useState('surf');
+  const refTab = useRef<HTMLButtonElement>(null);
+  const [clientWidth, setClientWidth] = useState(0);
+  const [offsetLeft, setOffsetLeft] = useState(0);
+
+  // using useLayoutEffect to do DOM changes directly and because I'm using useRef
+  useLayoutEffect(() => {
+    const updatePosition = () => {
+      // https://fettblog.eu/typescript-react/hooks/#useref
+      if (refTab && refTab.current) {
+        setClientWidth(refTab.current.clientWidth);
+        setOffsetLeft(refTab.current.offsetLeft);
+      }
+    }
+
+    window.addEventListener('resize', updatePosition);
+    updatePosition()
+
+    return () => {
+      window.removeEventListener('resize', updatePosition)
+    };
+  })
 
   return (
     <div className="tabs">
-      <div className="tablist" role="tablist" aria-orientation="horizontal">
+      <TabGroup role="tablist" aria-orientation="horizontal">
         {
           tabs.map((tab) => (
-            <button
+            <Tab
               key={tab.key}
               type="button"
+              ref={isSelected === tab.key ? refTab : null}
+              active={isSelected === tab.key}
               onClick={() => setIsSelected(tab.key)}
               role="tab"
               aria-selected={isSelected === tab.key ? 'true' : 'false'}
               id={`${tab.key}-tab`}
               aria-controls={`${tab.key}-content-panel`}>
               {tab.name}
-            </button>
+            </Tab>
           ))
         }
-      </div>
+        <SlidingBar style={{
+          left: offsetLeft,
+          width: clientWidth
+        }} />
+      </TabGroup>
       {
         tabs.map((tab) => {
           return (

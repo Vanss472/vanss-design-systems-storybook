@@ -43,6 +43,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
+    appearance: none;
+    border-radius: 0;
   }
 `;

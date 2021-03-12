@@ -84,6 +84,7 @@ export const SliderNavContainer = styled.div`
 
 export const Button = styled.button`
 	margin: 0;
+	padding: ${rem(2)} ${rem(6)};
 	background-color: whitesmoke;
 	border: none;
 	cursor: pointer;
